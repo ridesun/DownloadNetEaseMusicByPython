@@ -16,7 +16,7 @@ def search():
 def geturl():
 	f='http://music.163.com/song/media/outer/url?id='+str(id)+'.mp3'
 	return f
-file = open("list.txt") 
+file = open("/home/pi/Music/list.txt") 
 while 1:
     lines = file.readlines(100000)
     if not lines:
