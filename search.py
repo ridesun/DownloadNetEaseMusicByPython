@@ -7,7 +7,7 @@ from urllib.request import urlopen
 from urllib.parse import quote
 import re
 def search():
-	b='http://144.202.5.144:3000/search?keywords='+ quote(a) + '&limit=1&type=1'
+	b='http://127.0.0.1:3000/search?keywords='+ quote(a) + '&limit=1&type=1'
 	c=str(urlopen(b).read(),encoding=('utf-8'))
 	d=json.loads(c)
 	id=d['result']['songs'][0]['id']
