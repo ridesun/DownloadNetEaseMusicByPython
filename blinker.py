@@ -1,11 +1,11 @@
 from Blinker import *
+import tts
 
 BUTTON_1 = ('ButtonKey')
 
 Blinker.setMode(BLINKER_WIFI)
 Blinker.begin()
-Blinker.wInit(BUTTON_1, W_BUTTON) 
-Blinker.wInit(tooggle_1, W_TOGGLE)
+Blinker.wInit('play', W_BUTTON) 
 
 if __name__ == '__main__':
     while True:
@@ -13,8 +13,8 @@ if __name__ == '__main__':
 
         if Blinker.available() == True:
             data = Blinker.readString()
-            
-        if Blinker.button(BUTTON_1):
-            
+            tts.playmusic(data)
+        if Blinker.button('play'):
+            Blinker.notify("!播放")
 
 Blinker.delay(2000)
