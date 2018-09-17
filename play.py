@@ -8,7 +8,7 @@ def file_name(file_dir):
 
  
 def play_music():
-    pygame.mixer.init()
+    pygame.init()
     b=0
     c=1
     list1=file_name('/home/pi/Music')
@@ -18,15 +18,12 @@ def play_music():
           pygame.mixer.music.load(music_name)
           pygame.mixer.music.play()
           while True:
-                for event in pygame.event.get():
-                    if event.type == KEYDOWN:
-                       if event.key == K_SPACE:
-                          pause = not pause
-                if pause:
+                d=input()
+                if d=='z':
                    pygame.mixer.music.pause()
-                else:
+                elif d=='b':
                    pygame.mixer.music.unpause()
-          pygame.mixer.music.stop()
+#          pygame.mixer.music.stop()
           b=b+1
           if b>len(list1):
              break
