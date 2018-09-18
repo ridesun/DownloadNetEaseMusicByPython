@@ -1,4 +1,4 @@
-import urllib,time,urllib.request,re,pygame,eyed3
+import urllib,time,urllib.request,re,pygame,eyed3,os
 from urllib.request import urlopen
 from urllib.parse import quote
 from urllib.request import urlretrieve
@@ -13,4 +13,5 @@ def playmusic(tex):
     pygame.mixer.music.play()
     time.sleep(music_time)
     pygame.mixer.music.stop()
+    os.remove('tts.mp3')
 

@@ -1,5 +1,5 @@
 from Blinker import *
-import tts
+import tts,play_music
 
 BUTTON_1 = ('ButtonKey')
 
@@ -15,6 +15,8 @@ if __name__ == '__main__':
             data = Blinker.readString()
             tts.playmusic(data)
         if Blinker.button('play'):
-            Blinker.notify("!播放")
-
+           Blinker.notify("!播放")
+           play_music.play_music()
+        if Blinker.button('pause'):
+           play_music.pause()
 Blinker.delay(2000)
