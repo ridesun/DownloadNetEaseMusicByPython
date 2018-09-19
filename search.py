@@ -7,7 +7,7 @@ from urllib.request import urlopen
 from urllib.parse import quote
 import re
 def search():
-	b='http://127.0.0.1:3000/search?keywords='+ quote(a) + '&limit=1&type=1'
+	b='http://127.0.0.1:3000/search?keywords='+ quote(name) + '&limit=1&type=1'
 	c=str(urlopen(b).read(),encoding=('utf-8'))
 	d=json.loads(c)
 	id=d['result']['songs'][0]['id']
@@ -16,22 +16,14 @@ def search():
 def geturl():
 	f='http://music.163.com/song/media/outer/url?id='+str(id)+'.mp3'
 	return f
-file = open("/home/pi/Music/list.txt") 
-while 1:
-    lines = file.readlines(100000)
-    if not lines:
-        break
-    for y in lines:
-        a=y.strip() 
+def download(name): 
         id=search()
         url=geturl()
-        print(url)
         com='wget -O /home/pi/Music/'+a+'.mp3 '+url 
         z=os.system(com)
         if z==0:
          print('已下载歌曲.',a)
         else: print('下载失败')
-file.close()
 
 
 
