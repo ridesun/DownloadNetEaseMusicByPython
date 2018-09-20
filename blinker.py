@@ -13,7 +13,6 @@ if __name__ == '__main__':
 
         if Blinker.available() == True:
            data = Blinker.readString()
-#              search.download(data[2:])
            tts.playmusic(data)
         if Blinker.button('play'):
            Blinker.notify("!播放")
