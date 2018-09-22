@@ -1,4 +1,4 @@
-import os,pygame,time
+import os,pygame,time,eyed3
 def file_name(file_dir):
     list1=[];
     for files in os.walk(file_dir):
@@ -14,12 +14,16 @@ def play_music():
     list1=file_name('/home/pi/Music')
     while c==1: 
           z=list1[b]
-          music_name='/home/pi/Music/' + z 
-          pygame.mixer.music.load(music_name)
+          musicname='/home/pi/Music/' + z 
+          pygame.mixer.music.load(musicname)
+          q=eyed3.load(musicname)
+          atime=q.info.time_secs
+          print(atime)
           pygame.mixer.music.play()
+          time.sleep(atime)
           pygame.mixer.music.stop()
           b=b+1
           if b>len(list1):
              break
-
+play_music()
 

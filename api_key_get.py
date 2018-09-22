@@ -11,3 +11,4 @@ def get_api():
         api_dict=json.loads(result)
         api_token=api_dict['access_token']
         return api_token
+print(get_api())
